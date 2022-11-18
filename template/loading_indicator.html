@@ -1,0 +1,144 @@
+{% extends 'layout.html' %}
+{% block style %}        
+.loading {
+    margin:0; 
+    padding:0; 
+    box-sizing:border-box; 
+    display:flex; 
+    justify-content:center; 
+    align-items:center; 
+    min-height: 200px;   
+    background-color:rgb(58, 244, 83);
+    width: 35vh;
+    border-radius: 50%;
+}
+
+.load_container {
+    top: 30px;
+    position:relative;
+    width:100%;
+    display:flex; 
+    justify-content:center; 
+    align-items:center;
+}
+
+.load_container .load_ring {
+    left: -35px;
+    position:relative;
+    width:100px;
+    height:100px;
+    margin: -35px;
+    border-radius:50%;
+    /* border:2px solid #111; */
+    border:0px solid transparent;
+    animation: animate 1.5s linear infinite;
+    box-shadow: -10px -7px 20px 5px #026ba4a1,
+    10px 7px 10px 5px #026ba4a1 inset;
+    
+}
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.load_container .load_ring::before {
+    content: '';
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+    background: #015d7c;
+    box-shadow: 0 0 0 5px #8f11c933,
+    0 0 0 10px #8f11c922,
+    0 0 0 20px #ba11c911,
+    0 0 25px #c9119599,
+    0 0 30px #c9113c99;
+}
+
+.load_container .load_ring:nth-child(2) {
+    top: -50px;
+
+    position:relative;
+    width:100px;
+    height:100px;
+    margin: -35px;
+    border-radius:50%;
+    /* border:0px solid transparent; */
+    animation: animate 1.3s linear infinite;
+    box-shadow: -10px -7px 20px 5px #02a476a1,
+    10px 7px 10px 5px #02a476a1 inset;
+}
+
+.load_container .load_ring:nth-child(3) {
+    position:relative;
+    width:100px;
+    height:100px;
+    margin: -35px;
+    border-radius:50%;
+    /* border:0px solid transparent; */
+    animation: animate 1.7s linear infinite;
+    box-shadow: -10px -7px 20px 5px #0222a4a1,
+    10px 7px 10px 5px #0222a4a1 inset;
+}
+
+.load_container .load_ring:nth-child(4) {
+    position:relative;
+    width:100px;
+    height:100px;
+    top: -18px;
+    margin: -95px;
+    border-radius:50%;
+    /* border:0px solid transparent; */
+    animation: animate 1.4s reverse linear infinite;
+    box-shadow: 10px 7px 20px 5px #0222a4a1,
+    -10px -7px 10px 5px #0222a4a1 inset;
+}
+
+.load_container .load_ring:nth-child(4)::before {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 30px;
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+    background: #015d7c;
+    box-shadow: 0 0 0 5px #8f11c933,
+    0 0 0 10px #8f11c922,
+    0 0 0 20px #ba11c911,
+    0 0 25px #c9119599,
+    0 0 30px #c9113c99;
+}
+
+
+.load_container p {
+    position: absolute;
+    color: rgb(5, 29, 29);
+    font-size: 2em;
+    font-family: cursive; font-weight: 800;
+    letter-spacing: 0.1em;
+    text-shadow: 9px rgba(246, 2, 2, 200);
+    /* bottom: -80px; */
+}
+{% endblock style %}
+
+{% block content %}
+
+<div className="loading" >
+    <div className="load_container" >
+        <div className="load_ring" ></div>
+        <div className="load_ring" ></div>
+        <div className="load_ring" ></div>
+        <div className="load_ring" ></div>
+        <p>Loading...</p>
+    </div>
+</div>
+
+{% endblock content %}
+
