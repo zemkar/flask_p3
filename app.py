@@ -11,7 +11,7 @@ def home():
 
 
 @app.route("/load")
-def home():
+def loading():
     return  render_template ("loading_indicator.html")
 
 
